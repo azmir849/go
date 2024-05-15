@@ -1,0 +1,83 @@
+// /*-----------------------------------*\
+//    * #RESET
+//   \*-----------------------------------*/
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  body.active { overflow: hidden; }
+
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  li { list-style: none; }
+  
+  a { text-decoration: none; }
+  a,
+  img,
+  time,
+  span,
+  input,
+  label,
+  select,
+  button,
+  textarea,
+  ion-icon { display: block; }
+  
+  input,
+  button,
+  select,
+  textarea {
+    background: none;
+    border: none;
+    font: inherit;
+  }
+  
+  button,
+  select { cursor: pointer; }
+  
+  input,
+  textarea { width: 100%; }
+  
+  ion-icon { pointer-events: none; }
+
+
+
+
+  /*-----------------------------------*\
+   * #REUSED STYLE
+  \*-----------------------------------*/
+  
+  .container { padding-inline: 10px; }
+  
+  
+  
+  .w-100 { width: 100%; }
+  
+  .section-subtitle {
+    position: relative;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    max-width: 350px;
+    margin-bottom: 30px; 
+  }
+  
+ .Container{
+  max-width: 1160px;
+  margin: 0 auto;
+ }

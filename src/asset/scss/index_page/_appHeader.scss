@@ -1,0 +1,31 @@
+.app-header {
+  .app-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    .logo {
+      img {
+        max-height: 45px;
+      }
+      
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      a{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--background-color); 
+        font-weight: 500;
+        font-size: 15px;
+        margin-left: 40px;
+      }
+    }
+    .app-header-action{
+      margin-left: 40px;
+    }
+  }
+}
+
+
