@@ -32,7 +32,7 @@ const HoverPopover = ({data}) => {
                 <Typography>Taxes & Charges</Typography>
                 <Box sx={{mt:1, mb:1}} display={'flex'} justifyContent={'space-between'}>
                     <Box>Taxes & Fees</Box>
-                    <Box>{data?.totalFare?.currency} {data?.priceBreakDownWithMarkup?.totalFare?.netTotalDiscountAmount}</Box>
+                    <Box>{data?.totalFare?.currency} {data?.priceBreakDownWithMarkup?.totalFare?.netTotalFareTaxAmount}</Box>
                 </Box>
             </Box>
             <Box sx={{p:1}}>
