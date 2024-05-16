@@ -47,7 +47,7 @@ const HomePage = () => {
       // handleGetResults()
    },[])
 
-   console.log('results', results)
+  //  console.log('results', results)
 
   return (
     <>
@@ -126,8 +126,6 @@ const HomePage = () => {
               };
             
               journeyTime= calculateTimeDifference(journeyStartDateAndTime, journeyEndDateAndTime);
-
-              console.log('sdsds', data?.baggageInfo[0]?.details)
              
               return(
                 <ContentBody
