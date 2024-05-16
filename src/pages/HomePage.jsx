@@ -121,7 +121,7 @@ const HomePage = () => {
             
                 const hours = Math.floor(differenceInMinutes / 60);
                 const minutes = differenceInMinutes % 60;
-            
+                // as per website
                 return `${hours+2}h ${minutes}m`;
               };
             
@@ -136,12 +136,7 @@ const HomePage = () => {
                   journeyEnd={journeyEnd}
                   journeyTime={journeyTime}
                   detailsLength={detailsLength}
-                  visibleElements={visibleElements}
-                  setVisibleElements={setVisibleElements} 
-                  anchorEl={anchorEl} 
-                  setAnchorEl={setAnchorEl} 
-                  handlePopoverOpen={handlePopoverOpen} 
-                  handlePopoverClose={handlePopoverClose}
+                  visibleElements={visibleElements} 
                   handleShowSubElements={handleShowSubElements}
                 />
               )

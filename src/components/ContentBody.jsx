@@ -52,13 +52,12 @@ const ContentBody = ({
 }) => {
   //  foramated date function
   const formatDate = (dateString) => {
-    // Parse the date string into a Date object
     const date = new Date(dateString);
 
     // Define options for formatting the date
     const options = { weekday: "long", month: "long", day: "numeric" };
 
-    // Use Intl.DateTimeFormat to format the date
+    // format the date
     const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
       date
     );
@@ -146,6 +145,8 @@ const ContentBody = ({
             </Box>
           </Box>
         </Grid>
+        {/* time and destination end */}
+
         {/* amount and book now */}
         <Grid item lg={4} md={4}>
           {/* Right side */}
@@ -202,7 +203,7 @@ const ContentBody = ({
               </Box>
             </Box>
         </Grid>
-        {/* flight details border */}
+            {/* flight details border */}
         <Grid item lg={12} md={12}>
           <Box
             display={"flex"}
@@ -226,8 +227,9 @@ const ContentBody = ({
             </Box>
           </Box>
         </Grid>
+      {/* amount and book now end */}
 
-        {/* sub elements */}
+        {/* flight details*/}
         {visibleElements[id] && (
           <Box sx={{ p: 2 }} className="sub_elements" id={id}>
             <Grid container>
@@ -332,55 +334,6 @@ const ContentBody = ({
                   );
                 })}
 
-              {/* <Grid item lg={12} md={12}>
-                <Box
-                  sx={{ mt: 2 }}
-                  display={"flex"}
-                  justifyContent={"space-between"}
-                >
-                  <Box>img</Box>
-                  <Box>
-                    <p>UK</p>
-                    <p>Aircraft 184</p>
-                  </Box>
-                  <Box>
-                    <p>2024-05-18 16:25:00</p>
-                    <p>BOM</p>
-                  </Box>
-                  <Box>
-                    <div className="border_button_type">Economy</div>
-                  </Box>
-                  <Box display={"flex"}>
-                    <Box className="seat_cabin">
-                      <p>2024-05-18 14:00:00</p>
-                      <p>BOM</p>
-                    </Box>
-                    <Box className="seat_cabin">
-                      <p>UK</p>
-                      <p>184</p>
-                    </Box>
-                  </Box>
-                </Box>
-              </Grid>
-              <Grid item lg={12} md={12}>
-                <Box
-                  sx={{ mt: 3 }}
-                  display={"flex"}
-                  justifyContent={"space-between"}
-                >
-                  <Box>Transit time: 2h 25m</Box>
-                  <Box display={"flex"} justifyContent={"space-between"}>
-                    <Box className="seat_cabin">
-                      <p>Available seat : 9</p>
-                      <p>Cabin: Y (rbd:V)</p>
-                    </Box>
-                    <Box className="seat_cabin">
-                      <p>Baggage</p>
-                      <p>1Pcs</p>
-                    </Box>
-                  </Box>
-                </Box>
-              </Grid> */}
             </Grid>
           </Box>
         )}
