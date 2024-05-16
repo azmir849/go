@@ -47,7 +47,8 @@ const ContentBody = ({
   journeyStart,
   journeyEnd,
   detailsLength,
-  journeyTime
+  journeyTime,
+  transitTime
 }) => {
   //  foramated date function
   const formatDate = (dateString) => {
@@ -201,7 +202,7 @@ const ContentBody = ({
               </Box>
             </Box>
         </Grid>
-            {/* flight details border */}
+        {/* flight details border */}
         <Grid item lg={12} md={12}>
           <Box
             display={"flex"}
@@ -270,18 +271,18 @@ const ContentBody = ({
                     <>
                       <Grid item lg={12} md={12}>
                         <Box
-                          sx={{ mt: 2 }}
+                          sx={{ mt: 2,}}
                           display={"flex"}
                           justifyContent={"space-between"}
                         >
                           <Box>
                             <img src={`https://www.demo.zoo.family/front_asset/img/airlines-logo/${data?.priceBreakDownWithMarkup?.airlineCode}.gif`} alt={data?.priceBreakDownWithMarkup?.airlineCode} />
                           </Box>
-                          <Box>
+                          <Box className="seat_cabin">
                             <p>{listData?.fleet?.operating}</p>
                             <p>Aircraft {listData?.fleet?.operatingFlightNumber}</p>
                           </Box>
-                          <Box>
+                          <Box className="seat_cabin">
                             <p>{listData?.origin?.dateTime}</p>
                             <p>{listData?.origin?.airport}</p>
                           </Box>
@@ -306,8 +307,8 @@ const ContentBody = ({
                           display={"flex"}
                           justifyContent={"space-between"}
                         >
-                        {data?.legs[0]?.segmentDetails?.length > 1 ?
-                           <Box>Transit time: 2h 25m</Box>
+                        {(data?.legs[0]?.segmentDetails?.length > 1 && (data?.legs[0]?.segmentDetails?.length-1)===key) ?
+                           <Box>Transit time: {transitTime}</Box>
                            :<Box></Box>
                         }
                           <Box

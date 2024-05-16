@@ -65,15 +65,17 @@ const HomePage = () => {
           </Grid>
           <Grid item lg={9} md={9} sx={{mt:1, mb:1}}>
             {results && results?.length>0 && results.map((data, key)=>{
-              var journeyStartDateAndTime=''
-              var journeyEndDateAndTime=''
-              var journeyStart =''
-              var journeyEnd =''
-              var journeyTime=''
+              var journeyStartDateAndTime
+              var journeyEndDateAndTime
+              var journeyStart
+              var journeyEnd 
+              var journeyTime
+              var totalJourneyTime 
+              var transitTime
               var detailsLength = data?.legs[0]?.segmentDetails?.length
 
 
-              // for start time and end time
+              //extractTime for h m
               const extractTime = (dateTimeString) => {
                 const date = new Date(dateTimeString);
               
@@ -101,7 +103,8 @@ const HomePage = () => {
                 journeyEnd=splitDateAndTime
               }
               // ***********
-              // journey total time
+              
+              // calculateTimeDifference for journeyTime
               const calculateTimeDifference = (start, end) => {
                 const startDate = new Date(start);
                 const endDate = new Date(end);
@@ -122,11 +125,53 @@ const HomePage = () => {
                 const hours = Math.floor(differenceInMinutes / 60);
                 const minutes = differenceInMinutes % 60;
                 // as per website
-                return `${hours+2}h ${minutes}m`;
+                return `${hours}h ${minutes}m`;
               };
-            
               journeyTime= calculateTimeDifference(journeyStartDateAndTime, journeyEndDateAndTime);
-             
+
+
+              //calculation transittime
+                const storeAllDatesAndTimes = [] 
+                if(data?.legs[0]?.segmentDetails){
+                    data?.legs[0]?.segmentDetails.forEach(element => {
+                      storeAllDatesAndTimes.push(element?.origin?.dateTime)
+                      storeAllDatesAndTimes.push(element?.destination?.dateTime)
+                    });
+                }
+                storeAllDatesAndTimes.shift(); // Remove first element
+                storeAllDatesAndTimes.pop();   // Remove last element
+                // Iterate through the array in pairs of two and perform subtraction
+                for (let i = 0; i < storeAllDatesAndTimes.length - 1; i += 2) {
+                    const difference =calculateTimeDifference(storeAllDatesAndTimes[i], storeAllDatesAndTimes[i + 1]);
+                    transitTime=difference
+                }
+
+              //update journey time
+                const addTimes=(time1, time2)=> {
+                    const [hours1, minutes1] = time1.split('h ').map(part => parseInt(part));
+                    const [hours2, minutes2] = time2.split('h ').map(part => parseInt(part));
+            
+                    // Add the hours and minutes
+                    let totalHours = hours1 + hours2;
+                    let totalMinutes = minutes1 + minutes2;
+            
+                    // Ensure minutes don't exceed 60
+                    if (totalMinutes >= 60) {
+                        totalHours += Math.floor(totalMinutes / 60);
+                        totalMinutes %= 60;
+                    }
+            
+                    // Format the result
+                    const result = `${totalHours}h ${totalMinutes}m`;
+            
+                    return result;
+                }
+                if(transitTime){
+                  totalJourneyTime = addTimes(journeyTime,transitTime)
+                }else{
+                  totalJourneyTime = journeyTime
+                }
+
               return(
                 <ContentBody
                   key={data?.id}
@@ -134,7 +179,8 @@ const HomePage = () => {
                   data={data}
                   journeyStart={journeyStart}
                   journeyEnd={journeyEnd}
-                  journeyTime={journeyTime}
+                  journeyTime={totalJourneyTime}
+                  transitTime={transitTime}
                   detailsLength={detailsLength}
                   visibleElements={visibleElements} 
                   handleShowSubElements={handleShowSubElements}
