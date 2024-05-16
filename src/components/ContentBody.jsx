@@ -13,7 +13,6 @@ const HtmlTooltip = styled(({ className, ...props }) => (
   ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
       backgroundColor: '#fff',
-      color: 'rgba(0, 0, 0, 0.87)',
       right:'-20px',
       color:'#000',
       padding:'10px',
