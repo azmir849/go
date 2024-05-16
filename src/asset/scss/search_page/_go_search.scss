@@ -1,0 +1,56 @@
+.content_body{
+    background: #fff;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+
+}
+.sub_elements{
+    border-bottom: 5px solid #3c6382;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.border_button_type{
+    color:'#3c6382';
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    margin: 2px;
+    line-height: 18px;
+    border: 1px solid #3c6382;
+    text-transform: capitalize;
+}
+
+.seat_cabin{
+    p{
+        padding: 2px 20px;
+        font-size: 12px;
+        border-right: 1px solid #f0f0f0;
+    }
+}
+
+#line {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    height: 5px;
+}
+.time{
+    padding: 0;
+    margin: 0;
+    color: '#0a3d62';
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.bus, .company{
+    color: #0a3d62;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px 0;
+}
