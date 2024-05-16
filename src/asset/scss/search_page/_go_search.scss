@@ -30,6 +30,10 @@
         border-right: 1px solid #f0f0f0;
     }
 }
+.amount_discount{
+    border-left: 1px solid #d1d1d1 ;
+    margin: 16px;
+}
 
 #line {
     border: 0;
@@ -37,6 +41,7 @@
     display:block;
     width: 96%;               
     height: 5px;
+    margin-right: 5px;
 }
 .time{
     padding: 0;

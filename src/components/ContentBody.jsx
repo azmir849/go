@@ -148,12 +148,11 @@ const ContentBody = ({
 
         {/* amount and book now */}
         <Grid item lg={4} md={4}>
-          {/* Right side */}
             <Box
               display={"grid"}
               justifyContent={"center"}
               alignItems={"center"}
-              sx={{ borderLeft: "1px solid #d1d1d1", m: 2 }}
+              className='amount_discount'
             >
               {data?.priceBreakDownWithMarkup?.commission_percentage !==
                 "0.00" && (
@@ -207,7 +206,7 @@ const ContentBody = ({
           <Box
             display={"flex"}
             justifyContent={"space-between"}
-            sx={{ padding: " 7px 20px 1px 20px", background: "#f5f5f5" }}
+            sx={{ padding: " 7px 30px 1px 30px", background: "#f5f5f5" }}
           >
             <Box display={"flex"}>
               <Box> Send Query : </Box>
@@ -218,7 +217,7 @@ const ContentBody = ({
                 <EmailIcon style={{ fontSize: 20 }} />
               </Box>
             </Box>
-            <Box display={"flex"} sx={{ cursor: "pointer" }}>
+            <Box display={"flex"} sx={{ cursor: "pointer",ml:4 }}>
               <Box onClick={(e) => handleShowSubElements(id)}>
                 Flight Details{" "}
               </Box>

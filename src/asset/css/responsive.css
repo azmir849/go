@@ -1,0 +1,6 @@
+/* Hide left border on mobile */ 
+@media (min-width: 200px) and (max-width: 768px) {
+    .amount_discount{
+        border-left: none !important;
+    }
+}
